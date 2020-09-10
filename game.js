@@ -75,76 +75,76 @@ function winCheck(p) {
 }
 
 function winStep(p) {
-  var ones = 0;
-  var twos = 0;
-  var threes = 0;
-  var fours = 0;
-  var sevens = 0;
-  console.log(p);
+  for (var k = 0; k < p.length; k++) {
+    ones = 0;
+    twos = 0;
+    threes = 0;
+    fours = 0;
+    sevens = 0;
+    console.log(p);
 
-  if (p[0] == 1) {
-    for (var j = 0; j <= 2; j++) {
-      for (var i = 1; i < p.length; i++) {
-        if (p[i] == answer[j][1] || p[i] == answer[j][2]) {
-          ones += 1;
+    if (p[k] == 1) {
+      for (var j = 0; j <= 2; j++) {
+        for (var i = 1; i < p.length; i++) {
+          if (p[i] == answer[j][1] || p[i] == answer[j][2]) {
+            ones += 1;
+          }
+          if (ones == 2) {
+            return true;
+          }
         }
-        if (ones == 2) {
+        ones = 0;
+      }
+    }
+
+    if (p[k] == 2) {
+      for (var i = 1; i < p.length; i++) {
+        if (p[i] == answer[3][1] || p[i] == answer[3][2]) {
+          twos += 1;
+        }
+        if (twos == 2) {
           return true;
         }
       }
-      ones = 0;
     }
-  }
 
-  if (p[0] == 2) {
-    for (var i = 1; i < p.length; i++) {
-      if (p[i] == answer[3][1] || p[i] == answer[3][2]) {
-        twos += 1;
-      }
-      if (twos == 2) {
-        return true;
-      }
-      twos = 0;
-    }
-  }
-
-  if (p[0] == 3) {
-    for (var j = 4; j <= 5; j++) {
-      for (var i = 1; i < p.length; i++) {
-        if (p[i] == answer[j][1] || p[i] == answer[j][2]) {
-          threes += 1;
+    if (p[k] == 3) {
+      for (var j = 4; j <= 5; j++) {
+        for (var i = 1; i < p.length; i++) {
+          if (p[i] == answer[j][1] || p[i] == answer[j][2]) {
+            threes += 1;
+          }
+          if (threes == 2) {
+            return true;
+          }
         }
-        if (threes == 2) {
+        threes = 0;
+      }
+    }
+
+    if (p[k] == 4) {
+      for (var i = 1; i < p.length; i++) {
+        if (p[i] == answer[6][1] || p[i] == answer[6][2]) {
+          fours += 1;
+        }
+        if (fours == 2) {
           return true;
         }
       }
-      threes = 0;
     }
-  }
 
-  if (p[0] == 4) {
-    for (var i = 1; i < p.length; i++) {
-      if (p[i] == answer[6][1] || p[i] == answer[6][2]) {
-        fours += 1;
+    if (p[k] == 7) {
+      for (var i = 1; i < p.length; i++) {
+        if (p[i] == answer[7][1] || p[i] == answer[7][2]) {
+          sevens += 1;
+        }
+        if (sevens == 2) {
+          return true;
+        }
       }
-      if (fours == 2) {
-        return true;
-      }
-      fours = 0;
     }
-  }
 
-  if (p[0] == 7) {
-    for (var i = 1; i < p.length; i++) {
-      if (p[i] == answer[7][1] || p[i] == answer[7][2]) {
-        sevens += 1;
-      }
-      if (fours == 2) {
-        return true;
-      }
-      sevens = 0;
-    }
   }
-
   return false;
+
 }
